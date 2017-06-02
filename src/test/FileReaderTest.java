@@ -9,7 +9,8 @@ import main.FileScanner;
 
 
 public class FileReaderTest {
-	protected FileScanner fileReader;
+	
+	private FileScanner fileReader;
 	private  static final String FILE_EMPTY = "EmptyTestInput.txt";
 	private  static final String FILE = "TestInput.txt";
 	private  static final int NUMBER_OF_LINES = 19;
@@ -31,7 +32,7 @@ public class FileReaderTest {
 	}
 	
 	@Test
-	public final void testgetLinesFromSource(){
+	public final void testGetLinesFromSource(){
 
 		fileReader.setSource(FILE_EMPTY);
 		List<String> linesFromSource = fileReader.getLinesFromSource();
@@ -39,7 +40,7 @@ public class FileReaderTest {
 	}
 	
 	@Test
-	public final void testfillListLinesFromSource(){
+	public final void testFillListLinesFromSource(){
 		fileReader.setSource(FILE);
 		List<String> linesFromSource = fileReader.getLinesFromSource();
 		assertFalse(linesFromSource.size() == 0);

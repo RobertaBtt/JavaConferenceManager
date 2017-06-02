@@ -7,7 +7,7 @@ import org.junit.Test;
 
 public class TwoSessionConferenceTest extends TestCase{
 	
-	protected TwoSessionConference twoSessionConference;
+	private TwoSessionConference twoSessionConference;
 
 	protected void setUp() throws Exception {
 		twoSessionConference = new TwoSessionConference();
@@ -29,7 +29,7 @@ public class TwoSessionConferenceTest extends TestCase{
 	}
 	
 	@Test
-	public final void testorderProposalIntoList(){
+	public final void testOrderProposalIntoList(){
 		twoSessionConference.orderProposalIntoList();
 	}
 
