@@ -1,16 +1,25 @@
 package main;
 
+import java.util.List;
+
 public abstract class Conference {
 	
+	protected List<String> proposals;
+	
 	public final void fitProposalIntoTimeConstraintsTemplateMethod(){		
-		obtainProposalsFromFile();
-		orderProposalIntoList();
+		obtainProposals();
+		orderProposals();
 		printOrderedProposal();
 	}
 	
-	abstract void orderProposalIntoList();
+	abstract void orderProposals();
 	
-	void obtainProposalsFromFile(){}	
-	void printOrderedProposal(){}
+	private void obtainProposals(){
+		
+	}	
+	
+	private void printOrderedProposal(){
+		
+	}
 
 }

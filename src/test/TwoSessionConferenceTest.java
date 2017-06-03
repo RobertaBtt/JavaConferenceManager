@@ -30,7 +30,7 @@ public class TwoSessionConferenceTest extends TestCase{
 	
 	@Test
 	public final void testOrderProposalIntoList(){
-		twoSessionConference.orderProposalIntoList();
+		twoSessionConference.orderProposals();
 	}
 
 }

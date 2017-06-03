@@ -38,9 +38,10 @@ public class FileReaderTest {
 		List<String> linesFromSource = fileReader.getLinesFromSource();
 		assert(linesFromSource.size() == 0);
 	}
-	
+		
 	@Test
 	public final void testFillListLinesFromSource(){
+		
 		fileReader.setSource(FILE);
 		List<String> linesFromSource = fileReader.getLinesFromSource();
 		assertFalse(linesFromSource.size() == 0);
