@@ -8,7 +8,8 @@ public class ConferenceGroupingByDays implements ConferenceGrouping {
 	
 	private boolean toOrder = true;
 	private List<SessionMorning> sessionsMorning = new ArrayList<SessionMorning>();
-	
+	private List<SessionAfternoon> sessionsAfternoon= new ArrayList<SessionAfternoon>();
+
 	private static final double DURATION_MORNING = 180;
 	private static final String LUNCH = "Lunch";
 	private int currentTotalMinutes = 0;
@@ -35,8 +36,13 @@ public class ConferenceGroupingByDays implements ConferenceGrouping {
 
 
 	public List<SessionAfternoon> getSessionAfternoon(List<String> proposals) {
-		// TODO Auto-generated method stub
-		return null;
+		if (sessionsAfternoon != null && sessionsAfternoon.size() !=0){
+			return sessionsAfternoon;
+		}
+		else{
+			createSessionsAfternoon(proposals);
+			return sessionsAfternoon;
+		}
 	}
 	
 	
@@ -127,6 +133,8 @@ public class ConferenceGroupingByDays implements ConferenceGrouping {
 		excludedIndexes.add(currentIndex);
 		
 	}
+	
+	private void createSessionsAfternoon(List<String> proposals){}
 	
 	
 	
