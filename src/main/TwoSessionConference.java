@@ -6,12 +6,16 @@ import java.util.List;
 
 public class TwoSessionConference extends Conference{
 
-	private ProposalOrderer proposalOrder;
+	private ConferenceGroupingByDays conferenceGrouping;
 	
 	@Override
 	public void orderProposals() {
-		proposalOrder = new ProposalOrdererDivideIntoSessions();
-		proposals = proposalOrder.getReordererList(proposals);
+		
+		conferenceGrouping = new ConferenceGroupingByDays();
+		
+		List<SessionDay> sessionDays;
+		if (proposals != null)
+			sessionDays = conferenceGrouping.getDaysOfConference(proposals);
 		
 		List<String> orderedList = new ArrayList<String>();
 		proposals = orderedList;

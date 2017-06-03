@@ -34,13 +34,11 @@ public class InfoRetrieverFromProposalLines {
 		else if (lastElement.equalsIgnoreCase(LUNCH_STRING))
 			number = LUNCH;
 		
-		else{
+		else
 			if (proposal.equals(NETWORKING_EVENT_STRING))
-				number = NETWORKING_EVENT;
-			
+				number = NETWORKING_EVENT;			
 			else
-				number = Integer.valueOf(lastElement.substring(0,2));			
-		}
+				number = Integer.valueOf(lastElement.substring(0,2));		
 		
 		return number;
 		
@@ -64,6 +62,16 @@ public class InfoRetrieverFromProposalLines {
 			return (int) (dividedResult + 1); //day after
 		
 		else return (int)dividedResult;
+		
+	}
+	
+	public static boolean isDivisibileForThree(String proposalLine){
+		
+		int minutes = InfoRetrieverFromProposalLines.getMinutes(proposalLine);
+		if (minutes % 3 == 0)
+			return true;
+		else
+			return false;
 		
 	}
 	
