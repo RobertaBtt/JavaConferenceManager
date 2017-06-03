@@ -5,6 +5,7 @@ import static org.junit.Assert.assertNotNull;
 import java.util.*;
 
 import main.ConferenceGroupingByDays;
+import main.SessionAfternoon;
 import main.SessionDay;
 import main.SessionMorning;
 
@@ -17,7 +18,8 @@ public class ConferenceGroupingByDaysTest {
 	private List<String> proposals = new ArrayList<String>();
 	private ConferenceGroupingByDays conferenceGroupingByDays;
 	private  static final int NUMBER_OF_DAYS = 2;
-	private static final String FIRST_PROPOSAL = "09:00AM Writing Fast Tests Against Enterprise Rails 60min";
+	private static final String FIRST_PROPOSAL_MORNING_DAY1 = "09:00AM Writing Fast Tests Against Enterprise Rails 60min";
+	private static final String FIRST_PROPOSAL_AFTERNOON_DAY1 = "01:00PM Rails for Python Developers lightning";
 
 	@Before
 	public void setUp() throws Exception {
@@ -59,9 +61,15 @@ public class ConferenceGroupingByDaysTest {
 	}
 	
 	@Test
-	public final void testFirstProposalFromSessionDay(){
-		List<SessionMorning> sessionMorning = conferenceGroupingByDays.getSessionMorning(proposals);		
-		assertEquals(FIRST_PROPOSAL, sessionMorning.get(0));
+	public final void testFirstProposalFromMorningSession(){
+		List<SessionMorning> sessionsMorning = conferenceGroupingByDays.getSessionMorning(proposals);		
+		assertEquals(FIRST_PROPOSAL_MORNING_DAY1, sessionsMorning.get(0).getTalks().get(0));
+	}
+	
+	@Test
+	public final void testFirstProposalFromAfternoonSession(){
+		List<SessionAfternoon> sessionsAfternoon = conferenceGroupingByDays.getSessionAfternoon(proposals);		
+		assertEquals(FIRST_PROPOSAL_AFTERNOON_DAY1, sessionsAfternoon.get(0).getTalks().get(0));
 	}
 	
 	
