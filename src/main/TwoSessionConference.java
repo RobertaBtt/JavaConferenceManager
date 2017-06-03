@@ -12,7 +12,7 @@ public class TwoSessionConference extends Conference{
 	public void orderProposals() {
 		
 		conferenceGrouping = new ConferenceGroupingByDays();
-		
+		 
 		List<SessionDay> sessionDays;
 		if (proposals != null)
 			sessionDays = conferenceGrouping.getDaysOfConference(proposals);

@@ -6,6 +6,7 @@ import java.util.*;
 
 import main.ConferenceGroupingByDays;
 import main.SessionDay;
+import main.SessionMorning;
 
 import org.junit.Before;
 import org.junit.Test;
@@ -50,20 +51,19 @@ public class ConferenceGroupingByDaysTest {
 	public final void testListOrdererImplementationObjectExists(){
 		assertNotNull(conferenceGroupingByDays);		
 	}
-
 	
 	@Test
-	public final void testgetDaysOfConferenceTest(){
+	public final void testGetDaysOfConferenceTest(){
 		List<SessionDay> sessionDays = conferenceGroupingByDays.getDaysOfConference(proposals);
-		assertEquals(NUMBER_OF_DAYS, sessionDays.size());		
+		assertEquals(null, sessionDays);		
 	}
 	
 	@Test
 	public final void testFirstProposalFromSessionDay(){
-		List<SessionDay> sessionDays = conferenceGroupingByDays.getDaysOfConference(proposals);
-		
-		assertEquals(FIRST_PROPOSAL, sessionDays.getMorningSession().get(0));
+		List<SessionMorning> sessionMorning = conferenceGroupingByDays.getSessionMorning(proposals);		
+		assertEquals(FIRST_PROPOSAL, sessionMorning.get(0));
 	}
+	
 	
 	
 }

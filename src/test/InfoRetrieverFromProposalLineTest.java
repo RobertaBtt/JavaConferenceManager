@@ -8,7 +8,7 @@ import java.util.List;
 
 import main.FileScanner;
 import main.InfoRetrieverFromProposalLines;
-import main.ProposalOrdererDivideIntoSessions;
+import main.ConferenceGroupingByDays;
 
 
 public class InfoRetrieverFromProposalLineTest {
@@ -67,7 +67,17 @@ public class InfoRetrieverFromProposalLineTest {
 	@Test
 	public final void testNumberOfDays(){
 		assertEquals(NUMBER_OF_DAYS, InfoRetrieverFromProposalLines.getNumberOfDays(proposals));		
-	} 
+	}
+	
+	@Test
+	public final void testProposalDivisibleForThreeTrue(){
+		assertTrue( InfoRetrieverFromProposalLines.isDivisibileForThree(PROPOSAL_1));		
+	}
+	
+	@Test
+	public final void testProposalDivisibleForThreeFalse(){
+		assertFalse( InfoRetrieverFromProposalLines.isDivisibileForThree(PROPOSAL_2));		
+	}
 	
 	
 	
