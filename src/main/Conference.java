@@ -1,27 +1,44 @@
 package main;
 
-import java.util.ArrayList;
 import java.util.List;
 
 public abstract class Conference {
 	
+	private  static final String FILE = "TestInput.txt";
+
 	protected List<String> proposals;
+	protected List<SessionDay> sessionsDay;
 	
 	public final void fitProposalIntoTimeConstraintsTemplateMethod(){		
 		
 		obtainProposals();
-		orderProposals();
+		fitProposalIntoDays();
 		printOrderedProposals();
 	}
 	
-	abstract void orderProposals();	
 	private void obtainProposals(){
-		proposals = new ArrayList<String>();
-		proposals.add("Writing Fast Tests Against Enterprise Rails 60min");
-		proposals.add("Overdoing it in Python 45min");
-		proposals.add("Lua for the Masses 30min");
-		proposals.add("Ruby Errors from Mismatched Gem Versions 45min");
+		FileScanner fileReader = new FileScanner();
+		fileReader.setSource(FILE);
+		proposals = fileReader.getLinesFromSource();		
 	}	
-	private void printOrderedProposals(){}
+	
+	protected abstract void fitProposalIntoDays();	
+	
+	private void printOrderedProposals(){
+		SessionMorning sessionMorning;
+		SessionAfternoon sessionAfternoon;
+		for (int i=0; i<sessionsDay.size(); i++){
+			System.out.println("Track "+i);
+			sessionMorning = sessionsDay.get(i).getSessionMorning();
+			sessionAfternoon = sessionsDay.get(i).getSessionAfternoon();
+			
+			for (int m=0; m<sessionMorning.getTalks().size(); m++)
+				System.out.println(sessionMorning.getTalks().get(m));
+			for (int a=0; a<sessionAfternoon.getTalks().size(); a++)
+				System.out.println(sessionAfternoon.getTalks().get(a));
+			
+		}
+			
+	}
 
 }

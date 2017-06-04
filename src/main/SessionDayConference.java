@@ -1,21 +1,23 @@
 package main;
 
-import java.util.List;
 
 public class  SessionDayConference implements SessionDay{
 
-	public List<String> getSessionMorning(){
-		return null;
+	SessionMorning sessionMorning;
+	SessionAfternoon sessionAfternoon;
+	
+	public SessionMorning getSessionMorning(){
+		return sessionMorning;
 	}
-	public List<String> getSessionAfternoon(){
-		return null;
+	public SessionAfternoon getSessionAfternoon(){
+		return sessionAfternoon;
 	}
 	
 	public void setSessionMorning(SessionMorning sessionMorning){
-		
+		this.sessionMorning = sessionMorning;
 	}
 	public void setSessionAfternoon(SessionAfternoon sessionAfternoon){
-		
+		this.sessionAfternoon = sessionAfternoon;
 	}
 
 }
