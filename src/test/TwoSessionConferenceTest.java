@@ -13,9 +13,7 @@ public class TwoSessionConferenceTest extends TestCase{
 		twoSessionConference = new TwoSessionConference();
 		super.setUp();
 	}
-
-	
-	
+		
 	@Test
 	public final void testTwoSessionConferenceObjectExists(){
 		assertNotNull(twoSessionConference);		
@@ -24,13 +22,8 @@ public class TwoSessionConferenceTest extends TestCase{
 	
 	@Test 
 	public final void testFitProposalIntoTimeConstraintsTemplateMethod(){
-		twoSessionConference.fitProposalIntoTimeConstraintsTemplateMethod();	
-		
+		twoSessionConference.fitProposalIntoTimeConstraintsTemplateMethod();			
 	}
 	
-	@Test
-	public final void testOrderProposalIntoList(){
-		//twoSessionConference.fitProposalIntoDays();
-	}
 
 }

@@ -8,46 +8,44 @@ import java.util.List;
 import main.FileScanner;
 
 
-public class FileReaderTest {
+public class FileScannerTest {
 	
-	private FileScanner fileReader;
+	private FileScanner fileScanner;
 	private  static final String FILE_EMPTY = "EmptyTestInput.txt";
 	private  static final String FILE = "TestInput.txt";
+
 	private  static final int NUMBER_OF_LINES = 19;
 
 	@Before
 	public void setUp() throws Exception {
-		fileReader = new FileScanner();
-		
+		fileScanner = new FileScanner();		
 	}
 	
 	@Test
 	public final void testFileScannerObjectExists(){
-		assertNotNull(fileReader);		
+		assertNotNull(fileScanner);		
 	}
 
 	@Test
 	public final void testSetSource(){
-		fileReader.setSource("");
+		fileScanner.setSource("");
 	}
 	
 	@Test
 	public final void testGetLinesFromSource(){
 
-		fileReader.setSource(FILE_EMPTY);
-		List<String> linesFromSource = fileReader.getLinesFromSource();
-		assert(linesFromSource.size() == 0);
+		fileScanner.setSource(FILE_EMPTY);
+		List<String> linesFromSource = fileScanner.getLinesFromSource();
+		assertEquals(0, linesFromSource.size());
 	}
 		
 	@Test
 	public final void testFillListLinesFromSource(){
 		
-		fileReader.setSource(FILE);
-		List<String> linesFromSource = fileReader.getLinesFromSource();
-		assertFalse(linesFromSource.size() == 0);
+		fileScanner.setSource(FILE);
+		List<String> linesFromSource = fileScanner.getLinesFromSource();
+		assertNotEquals(0, linesFromSource.size());
 		assertEquals(NUMBER_OF_LINES, linesFromSource.size());
 	}
-	
-	
 	
 }

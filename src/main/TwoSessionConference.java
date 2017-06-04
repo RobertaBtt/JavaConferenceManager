@@ -8,7 +8,6 @@ public class TwoSessionConference extends Conference{
 	protected void fitProposalIntoDays() {		
 		conferenceGrouping = new ConferenceGroupingByDays();
 		sessionsDay = conferenceGrouping.getDaysOfConference(proposals);		
-		
 	}
 
 }

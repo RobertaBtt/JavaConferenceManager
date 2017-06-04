@@ -20,7 +20,6 @@ public class InfoRetrieverFromProposalLines {
 	}
 	
 	
-
 	private static int getNumber(String proposal){
 		
 		int number = 0;
@@ -58,11 +57,17 @@ public class InfoRetrieverFromProposalLines {
 		
 		double dividedResult = InfoRetrieverFromProposalLines.getTotalMinutes(proposals) / MAX_DURATION_PER_DAY;
 		
-		if (dividedResult - (int)(dividedResult) >0)
-			return (int) (dividedResult + 1); //day after
-		
+		if (exceedToNexDay(dividedResult))
+			return (int) (dividedResult + 1); //day after		
 		else return (int)dividedResult;
 		
+	}
+	
+	private static boolean exceedToNexDay(double dividedResult){
+		if(dividedResult - (int)(dividedResult) >0)
+			return true;
+		else
+			return false;	
 	}
 	
 	public static boolean isDivisibileForThree(String proposalLine){
@@ -71,8 +76,8 @@ public class InfoRetrieverFromProposalLines {
 		if (minutes % 3 == 0)
 			return true;
 		else
-			return false;
-		
+			return false;		
 	}
+	
 	
 }

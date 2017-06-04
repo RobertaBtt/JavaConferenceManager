@@ -31,8 +31,14 @@ public class ConferenceGroupingByDays implements ConferenceGrouping {
 		else{
 			createSessionsDay(proposals);
 			return sessionsDay;
-		}	
-		
+		}			
+	}
+	
+	private boolean sessionsDayBuilt(){
+		if (sessionsDay != null && sessionsDay.size() !=0)
+			return true;
+		else
+			return false;
 	}
 	
 	private void createSessionsDay(List<String> proposals){
@@ -42,7 +48,7 @@ public class ConferenceGroupingByDays implements ConferenceGrouping {
 		for(int i=0; i<sessionsMorning.size(); i++)
 			for (int j=0; j<sessionsAfternoon.size(); j++)
 				if (i==j){
-					 sessionDayConference= new SessionDayConference();
+					 sessionDayConference = new SessionDayConference();
 					 sessionDayConference.setSessionMorning(sessionsMorning.get(i));
 					 sessionDayConference.setSessionAfternoon(sessionsAfternoon.get(j));
 					 sessionsDay.add(sessionDayConference);
@@ -94,12 +100,7 @@ public class ConferenceGroupingByDays implements ConferenceGrouping {
 			return false;
 	}
 	
-	private boolean sessionsDayBuilt(){
-		if (sessionsDay != null && sessionsDay.size() !=0)
-			return true;
-		else
-			return false;
-	}
+	
 	
 	
 	private void createSessionsMorning(List<String> proposals){

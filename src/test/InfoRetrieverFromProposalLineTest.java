@@ -2,27 +2,24 @@ package test;
 
 import static org.junit.Assert.*;
 import org.junit.*;
+import java.util.*;
 
-import java.util.ArrayList;
-import java.util.List;
-
-import main.FileScanner;
 import main.InfoRetrieverFromProposalLines;
-import main.ConferenceGroupingByDays;
-
 
 public class InfoRetrieverFromProposalLineTest {
 	
 	private List<String> proposals = new ArrayList<String>();
+	private List<String> oneDayProposals = new ArrayList<String>();
+
 	
 	private  static final String PROPOSAL_1 = "Writing Fast Tests Against Enterprise Rails 60min";
 	private  static final String PROPOSAL_2 = "Rails for Python Developers lightning";
 	private  static final int MIN_60 = 60;
 	private  static final int LIGHTNING = 5;
-	private  static final int LUNCH = 60;
-	private  static final int NETWORKING_EVENT = 60;
 	private  static final int TOTAL_MINUTES = 785;
-	private  static final int NUMBER_OF_DAYS = 2;
+	private  static final int NUMBER_OF_DAYS_TWO = 2;
+	private  static final int NUMBER_OF_DAYS_ONE = 1;
+
 	
 	@Before
 	public void setUp() throws Exception {
@@ -47,6 +44,17 @@ public class InfoRetrieverFromProposalLineTest {
 		proposals.add("A World Without HackerNews 30min");
 		proposals.add("User Interface CSS in Rails Apps 30min");
 				
+		oneDayProposals.add("Writing Fast Tests Against Enterprise Rails 60min");
+		oneDayProposals.add("Overdoing it in Python 45min");
+		oneDayProposals.add("Lua for the Masses 30min");
+		oneDayProposals.add("Ruby Errors from Mismatched Gem Versions 45min");
+		oneDayProposals.add("Common Ruby Errors 45min");
+		oneDayProposals.add("Rails for Python Developers lightning");
+		oneDayProposals.add("Communicating Over Distance 60min");
+		oneDayProposals.add("Accounting-Driven Development 45min");
+		oneDayProposals.add("Woah 30min");
+		oneDayProposals.add("Sit Down and Write 30min");
+
 	}
 	
 	@Test
@@ -65,9 +73,15 @@ public class InfoRetrieverFromProposalLineTest {
 	}
 	
 	@Test
-	public final void testNumberOfDays(){
-		assertEquals(NUMBER_OF_DAYS, InfoRetrieverFromProposalLines.getNumberOfDays(proposals));		
+	public final void testNumberOfDaysTwo(){
+		assertEquals(NUMBER_OF_DAYS_TWO, InfoRetrieverFromProposalLines.getNumberOfDays(proposals));		
 	}
+	
+	@Test
+	public final void testNumberOfDaysOne(){
+		assertEquals(NUMBER_OF_DAYS_ONE, InfoRetrieverFromProposalLines.getNumberOfDays(oneDayProposals));		
+	}
+	
 	
 	@Test
 	public final void testProposalDivisibleForThreeTrue(){
@@ -78,8 +92,6 @@ public class InfoRetrieverFromProposalLineTest {
 	public final void testProposalDivisibleForThreeFalse(){
 		assertFalse( InfoRetrieverFromProposalLines.isDivisibileForThree(PROPOSAL_2));		
 	}
-	
-	
 	
 	
 }
