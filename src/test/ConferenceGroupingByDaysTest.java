@@ -57,18 +57,20 @@ public class ConferenceGroupingByDaysTest {
 	@Test
 	public final void testGetDaysOfConferenceTest(){
 		List<SessionDay> sessionDays = conferenceGroupingByDays.getDaysOfConference(proposals);
-		assertEquals(null, sessionDays);		
+		assertEquals(NUMBER_OF_DAYS, sessionDays.size());		
 	}
 	
 	@Test
 	public final void testFirstProposalFromMorningSession(){
-		List<SessionMorning> sessionsMorning = conferenceGroupingByDays.getSessionMorning(proposals);		
+		List<SessionMorning> sessionsMorning = conferenceGroupingByDays.getSessionsMorning(proposals);		
 		assertEquals(FIRST_PROPOSAL_MORNING_DAY1, sessionsMorning.get(0).getTalks().get(0));
+
 	}
+		
 	
 	@Test
 	public final void testFirstProposalFromAfternoonSession(){
-		List<SessionAfternoon> sessionsAfternoon = conferenceGroupingByDays.getSessionAfternoon(proposals);		
+    List<SessionAfternoon> sessionsAfternoon = conferenceGroupingByDays.getSessionsAfternoon(proposals);		
 		assertEquals(FIRST_PROPOSAL_AFTERNOON_DAY1, sessionsAfternoon.get(0).getTalks().get(0));
 	}
 	

@@ -4,10 +4,10 @@ import java.util.List;
 
 public interface SessionDay {
 
-	List<String> getMorningSession();
+	public List<String> getSessionMorning();
+	public List<String> getSessionAfternoon();
 	
-//	private Session sessionMorning;
-//	private final Session  sessionAfternoon;
-//	
+	public void setSessionMorning(SessionMorning sessionMorning);
+	public void setSessionAfternoon(SessionAfternoon sessionAfternoon);
 
 }
