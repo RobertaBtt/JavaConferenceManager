@@ -1,1 +1,1 @@
-# ConferenceTrackManagementJavaRB
+# Manages conferences tracks easily
